@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        </head>
+        <body>
+            <div class="row mt-5 pr-3">
+                <div class="col-md-3">
+                    <ul class="nav nav-pills flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="scouting_main.php">Team Bot Add</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                      </li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <h1>Scouting Form: Bot Add</h1>
+                    </div>
+                    <form action="/resources/php/bot_add.php" method="post">
+                        <div class="row bg-faded pt-2 pb-2">
+                            <div class="col-sm-6 mb-2">
+                                <div class="form-group">
+                                    <h4 for="inputTeamName">Team</h4>
+                                    <select name="teamName" class="custom-select ml-3">
+                                        <option selected disabled>Pick a Team</option>
+                                        <?php getTeamNames($connectPDO); ?>
+                                    </select>
+                                    <br>
+                                    <select name="teamName" class="custom-select ml-3">
+                                        <option selected disabled>Pick a Number</option>
+                                        <?php getTeamNumbers($connectPDO); ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <h4 for="inputClimbingSpecs">Can Climb From:</h4>
+                                    <input class="form-check form-check-inline ml-3" type="checkbox" name="leftRung" value=1>Left Rung
+                                    <input class="form-check form-check-inline ml-3" type="hidden" name="leftRung" value="0">
+                                    <input class="form-check form-check-inline ml-3" type="checkbox" name="middleRung" value=1>Middle Rung
+                                    <input class="form-check form-check-inline ml-3" type="hidden" name="middleRung" value="0">
+                                    <input class="form-check form-check-inline ml-3" type="checkbox" name="rightRung" value=1>Right Rung
+                                    <input class="form-check form-check-inline ml-3" type="hidden" name="rightRung" value=0><br>
+                                </div>
+                                <div class="form-group">
+                                    <h4 for="inputPlacementSpecs">Can put boxes in:</h4>
+                                    <input class="form-check form-check-inline ml-3" type="checkbox" name="scale" value=1>Scale
+                                    <input class="form-check form-check-inline ml-3" type="hidden" name="scale" value=0>
+                                    <input class="form-check form-check-inline ml-3" type="checkbox" name="switch" value=1>Switch
+                                    <input class="form-check form-check-inline ml-3" type="hidden" name="switch" value=1><br>
+                                </div>
+                                <div class="form-group">
+                                    <h4>Drivetrain</h4>
+                                    <select name="drivetrain" class="custom-select">
+                                      <option selected disabled>Select a drivetrain</option>
+                                      <option value="tankDrive">Tank Drive</option>
+                                      <option value="mecanum">Mecanum</option>
+                                      <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="vertical-line"></div>
+                                <div class="form-group ml-2">
+                                    <h4 for="inputAutonPts">Autonomous Points / Match</h4>
+                                    <input type="number" name="autoPoints" min="1" max="200" class="form-control">
+                                </div>
+                                <div class="form-group ml-2">
+                                    <h4 for="inputGenStats">General Stats</h4><br>
+                                    <label for="inputBoxPickupSpeed">Box Pickup Speed</label>
+                                    <input type="range" name="boxPickupSpeed" min="1" max="12" class="form-control my-0 py-0">
+                                    <div class="row px-3 mb-0 pb-0">
+                                        <div class="col-sm-1"><p>1</p></div>
+                                        <div class="col-sm-1"><p>2</p></div>
+                                        <div class="col-sm-1"><p>3</p></div>
+                                        <div class="col-sm-1"><p>4</p></div>
+                                        <div class="col-sm-1"><p>5</p></div>
+                                        <div class="col-sm-1"><p>6</p></div>
+                                        <div class="col-sm-1"><p>7</p></div>
+                                        <div class="col-sm-1"><p>8</p></div>
+                                        <div class="col-sm-1"><p>9</p></div>
+                                        <div class="col-sm-1"><p>10</p></div>
+                                        <div class="col-sm-1"><p>11</p></div>
+                                        <div class="col-sm-1"><p>12</p></div>
+                                    </div>
+                                    <label for="robotAgility">Robot Agility</label>
+                                    <input type="range" name="agility" min="1" max="12" class="form-control my-0 py-0">
+                                    <div class="row px-3 mb-0 pb-0">
+                                        <div class="col-sm-1"><p>1</p></div>
+                                        <div class="col-sm-1"><p>2</p></div>
+                                        <div class="col-sm-1"><p>3</p></div>
+                                        <div class="col-sm-1"><p>4</p></div>
+                                        <div class="col-sm-1"><p>5</p></div>
+                                        <div class="col-sm-1"><p>6</p></div>
+                                        <div class="col-sm-1"><p>7</p></div>
+                                        <div class="col-sm-1"><p>8</p></div>
+                                        <div class="col-sm-1"><p>9</p></div>
+                                        <div class="col-sm-1"><p>10</p></div>
+                                        <div class="col-sm-1"><p>11</p></div>
+                                        <div class="col-sm-1"><p>12</p></div>
+                                    </div>
+                                    <label for="robotSpeed">Robot Speed</label>
+                                    <input type="range" name="speed" min="1" max="12" class="form-control my-0 py-0">
+                                    <div class="row px-3 mb-0 pb-0">
+                                        <div class="col-sm-1"><p>1</p></div>
+                                        <div class="col-sm-1"><p>2</p></div>
+                                        <div class="col-sm-1"><p>3</p></div>
+                                        <div class="col-sm-1"><p>4</p></div>
+                                        <div class="col-sm-1"><p>5</p></div>
+                                        <div class="col-sm-1"><p>6</p></div>
+                                        <div class="col-sm-1"><p>7</p></div>
+                                        <div class="col-sm-1"><p>8</p></div>
+                                        <div class="col-sm-1"><p>9</p></div>
+                                        <div class="col-sm-1"><p>10</p></div>
+                                        <div class="col-sm-1"><p>11</p></div>
+                                        <div class="col-sm-1"><p>12</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary ml-auto mr-4 mb-2">Submit</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </body>
+    </html>
