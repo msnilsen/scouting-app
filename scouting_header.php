@@ -1,8 +1,7 @@
 <?php
 session_start();
-
-if (!$_SESSION['loggedIn']) {
-    echo $_SESSION['loggedIn'];
+if (!$_SESSION['loggedIn'] || !$_SESSION['isUp']) {
+    header("Location: /index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -13,6 +12,13 @@ if (!$_SESSION['loggedIn']) {
             <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
             <link rel="stylesheet" href="/resources/bootstrap/css/dataTables.bootstrap4.min.css">
             <link rel="icon" href="http://www.dsatulsa.org/images/links/8eac4a736e4a094688c3b54b43588308">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-6851851058987087",
+                enable_page_level_ads: true
+              });
+            </script>
             <style>
                 .bg-faded {
                     background-color: #CECECE;

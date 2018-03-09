@@ -1,11 +1,5 @@
 <?php
 include "scouting_header.php";
-if (isset($_SESSION["botId"])) {
-    unset($_SESSION["botId"]);
-}
-if (!$_SESSION['loggedIn']) {
-    header("Location: /index.php");
-}
 ?>
 <ul class="navbar-nav mr-auto">
     <li class="nav-item">

@@ -4,9 +4,6 @@ if (!(isset($_SESSION['teamId']))) {
     header("Location: /scouting_main_roundAdd.php");
     
 }
-if (!$_SESSION['loggedIn']) {
-    header("Location: /index.php");
-}
 ?>
 <ul class="navbar-nav mr-auto">
     <li class="nav-item">

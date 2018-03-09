@@ -1,9 +1,9 @@
 <?php
 
 $dbServername="localhost";
-$dbUsn="root";
-$dbPwd="Football*35";
-$dbName="2018-19_robots";
+$dbUsn="u339075805_4189";
+$dbPwd="300million";
+$dbName="u339075805_a";
 
 $connect = mysqli_connect($dbServername, $dbUsn, $dbPwd, $dbName );
 $connectPDO = new PDO("mysql:host=$dbServername;dbname=$dbName", $dbUsn, $dbPwd);

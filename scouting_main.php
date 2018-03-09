@@ -1,6 +1,5 @@
 <?php
 include "scouting_header.php";
-    //header("Location: /index.php");
 ?>
 <ul class="navbar-nav mr-auto">
     <li class="nav-item">
